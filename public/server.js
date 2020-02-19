@@ -18,4 +18,16 @@ app.get("/*", (req, res) => {
 
 app.get("/api/notes", (req, res) => {
     res.json(notes);
-})
+});
+
+app.post("/api/notes",(req,res)=>{
+    console.log("recieved note");
+    console.log(req.body);
+    let newNote = req.body;
+    
+    saveNote(newNote);
+    
+    res.end("note created");
+    
+
+});
