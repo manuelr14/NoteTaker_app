@@ -5,7 +5,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const tables=[ ];
+const notes=[ ];
 
 app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "notes.html"));
@@ -15,3 +15,7 @@ app.get("/notes", (req, res) => {
 app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
+
+app.get("/api/notes", (req, res) => {
+    res.json(notes);
+})
