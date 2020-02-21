@@ -6,6 +6,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const notes=[ ];
+app.get("/", (req, res) => {
+    res.send( {message: 'hello'})
+
+});
 
 app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "notes.html"));
@@ -32,6 +36,12 @@ app.post("/api/notes",(req,res)=>{
 
 });
 
-app.listen(PORT, () => {
-    console.log(`Listening on port:${PORT}`);
-});
+// module.exports= start
+
+// const start = () => {
+
+    app.listen(PORT, () => {
+        console.log(`Listening on port:${PORT}`);
+    });
+
+// }
