@@ -7,7 +7,7 @@ app.use(express.json());
 
 // const notes=[ "love", "yes"];
 
-var notes = require("./assets/js/notesData.js");
+var notes = require("./assets/js/index.js");
 
 app.get("/", (req, res) => {
     res.send( {message: 'hello'})
@@ -31,11 +31,11 @@ app.post("/api/notes",(req,res)=>{
     console.log("recieved note");
     console.log(req.body);
     // let newNote = req.body;
-    for (var i = 0 ; i < notes.length; i++){
+    // for (var i = 0 ; i < notes.length; i++){
 
         notes.push(req.body);
         res.json(true);
-    }
+    // }
     // }else{
     //     console.log("complete");
     // }
